@@ -1,10 +1,10 @@
 ---
-title: Visualizing the Three Point Shot
-author: ~
+title: "Visualizing the Three Point Shot"
+author: "null"
 date: '2019-04-26'
 slug: visualising-the-three-point-shot
-categories: []
 tags: []
+categories: []
 ---
 
 ```{r setup, include=FALSE}
@@ -78,7 +78,7 @@ This chart shows how the average three point attempts per game has changed over 
 
 The last visualization I tried was with the use of `library(gganimate)`
 
-```{r}
+```{r, cache=TRUE, fig.align="left"}
 ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPP, color = Team)) +
   transition_time(Year) + 
   geom_point() +
