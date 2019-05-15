@@ -85,7 +85,7 @@ ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPP, color = Team)) +
   geom_point() +
   theme_bw() +
   guides(color = FALSE) +
-  labs(title = "Three Point Attemps vs Three Point Percentage, Year: {frame_time}") +
+  labs(title = "3PA vs 3P%, Year: {frame_time}") +
   xlab("Three Point FG Attemps (Per Game)") +
   ylab("Three Points FG Percentage (Per Game)")
 ```
