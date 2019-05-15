@@ -1,0 +1,78 @@
+---
+title: Visualising the Three Point Shot
+author: ~
+date: '2019-04-26'
+slug: visualising-the-three-point-shot
+categories: []
+tags: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr) 
+library(gghighlight)
+library(gganimate)
+library(gifski)
+library(tidyr)
+library(lsmeans)
+
+nbastats <- read.csv("https://raw.githubusercontent.com/eisleyadore/eisleyadore.github.io/master/data/nbastats.csv",
+                     fileEncoding="UTF-8-BOM")
+
+allstats <- read.csv("https://raw.githubusercontent.com/eisleyadore/eisleyadore.github.io/master/data/allstats.csv")
+
+statsbyyear <- read.csv("https://github.com/eisleyadore/eisleyadore.github.io/raw/master/data/statsbyyear.csv")
+
+teamstats <- read.csv("https://raw.githubusercontent.com/eisleyadore/eisleyadore.github.io/master/data/teamstatsbyyear.csv")
+
+statsAllYears <- read.csv("https://raw.githubusercontent.com/eisleyadore/eisleyadore.github.io/master/data/teamStatsAllYears.csv")
+
+FGAdata <- read.csv("https://raw.githubusercontent.com/eisleyadore/eisleyadore.github.io/master/data/FGAdata.csv")
+
+statsAllYears$THREEPP_100 <- 100*statsAllYears$THREEPP
+
+statsAllYears$Year <- as.factor(statsAllYears$Year)
+
+stats_2019 <- statsAllYears %>% 
+  filter(Year == 2019) 
+```
+
+I wanted to try out some new plots/ways to visualize data that I have never used before.
+
+The first one was the use of `library(gghighlight)`.
+
+```{r}
+ggplot(allstats, aes(x = Year, y = THREEP., color = Player)) +
+  geom_line(size = 1.25) +
+  gghighlight(mean(THREEP.) > 40, label_key = Player) + #highlight!
+  ylab("Three Points Percentage") +
+  ggtitle("Average Three Point Field Goal Percentage, years 2017-2019")  +
+  geom_point(size = 3.25) +
+  scale_x_continuous(name ="Year", 
+                 breaks=c(1,2,3)) +
+  theme_bw()
+```
+
+This library lets you highlight lines, points, etc. in your graph using a filter! For the graph above I wanted to see the players who had a mean Three point Percentage greater than 40 over the past three years: `gghighlight(mean(THREEP,) > 40, label_key = Player)`. We can see thatonly three players have 3P% over the past three years, Stephen Curry, Klay Thompson, and Kyrie Irving.
+
+```{r}
+threePA_year <- statsAllYears %>% 
+  group_by(Year) %>% 
+  summarise(threePA = mean(THREEPA))
+```
+
+The next plot was the lollipop chart.
+```{r}
+ggplot(data = threePA_year, aes(x = Year, y = threePA)) +
+  geom_segment(aes(x = Year, xend = Year, y = 0, yend = threePA)) +
+  geom_point(size = 4, color = "#00BFC4") +
+  theme_bw() +
+  ggtitle("Average Three Point Attempts per Game, 1996-2019") +
+  ylab("Three Point Attempts")
+```
+
+Lollipop charts, essentially another version of a bar chart, consist of a clever use of `geom_point()` as the data point and `geom_segment()` as the "bars". Lollipop charts serve the same purpose as bar charts, but, in my opinion, they do look more aesthetically appealing, and sometimes that's all that matters!
+
+This chart shows how the average three point attempts per game has changed over the course of ~20 years (1996-2019).
+

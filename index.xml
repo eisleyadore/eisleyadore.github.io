@@ -6,10 +6,21 @@
     <description>Recent content on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Visualising the Three Point Shot</title>
+      <link>/2019/04/26/visualising-the-three-point-shot/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/04/26/visualising-the-three-point-shot/</guid>
+      <description>I wanted to try out some new plots/ways to visualize data that I have never used before.
+The first one was the use of library(gghighlight).
+ggplot(allstats, aes(x = Year, y = THREEP., color = Player)) +geom_line(size = 1.25) +gghighlight(mean(THREEP.) &amp;gt; 40, label_key = Player) + #highlight!ylab(&amp;quot;Three Points Percentage&amp;quot;) +ggtitle(&amp;quot;Average Three Point Field Goal Percentage, years 2017-2019&amp;quot;) +geom_point(size = 3.25) +scale_x_continuous(name =&amp;quot;Year&amp;quot;, breaks=c(1,2,3)) +theme_bw()This library lets you highlight lines, points, etc.</description>
+    </item>
     
     <item>
       <title>Does Three Point Field Goal Percentage Affect Winning?</title>

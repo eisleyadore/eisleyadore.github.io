@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.54.0" />
+
+
+<title>Visualising the Three Point Shot - A Hugo website</title>
+<meta property="og:title" content="Visualising the Three Point Shot - A Hugo website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Visualising the Three Point Shot</h1>
+
+    
+    <span class="article-date">2019-04-26</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>I wanted to try out some new plots/ways to visualize data that I have never used before.</p>
+<p>The first one was the use of <code>library(gghighlight)</code>.</p>
+<pre class="r"><code>ggplot(allstats, aes(x = Year, y = THREEP., color = Player)) +
+  geom_line(size = 1.25) +
+  gghighlight(mean(THREEP.) &gt; 40, label_key = Player) + #highlight!
+  ylab(&quot;Three Points Percentage&quot;) +
+  ggtitle(&quot;Average Three Point Field Goal Percentage, years 2017-2019&quot;)  +
+  geom_point(size = 3.25) +
+  scale_x_continuous(name =&quot;Year&quot;, 
+                 breaks=c(1,2,3)) +
+  theme_bw()</code></pre>
+<p><img src="/post/2019-05-15-visualising-the-three-point-shot_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>This library lets you highlight lines, points, etc. in your graph using a filter! For the graph above I wanted to see the players who had a mean Three point Percentage greater than 40 over the past three years: <code>gghighlight(mean(THREEP,) &gt; 40, label_key = Player)</code>. We can see thatonly three players have 3P% over the past three years, Stephen Curry, Klay Thompson, and Kyrie Irving.</p>
+<pre class="r"><code>threePA_year &lt;- statsAllYears %&gt;% 
+  group_by(Year) %&gt;% 
+  summarise(threePA = mean(THREEPA))</code></pre>
+<p>The next plot was the lollipop chart.</p>
+<pre class="r"><code>ggplot(data = threePA_year, aes(x = Year, y = threePA)) +
+  geom_segment(aes(x = Year, xend = Year, y = 0, yend = threePA)) +
+  geom_point(size = 4, color = &quot;#00BFC4&quot;) +
+  theme_bw() +
+  ggtitle(&quot;Average Three Point Attempts per Game, 1996-2019&quot;) +
+  ylab(&quot;Three Point Attempts&quot;)</code></pre>
+<p><img src="/post/2019-05-15-visualising-the-three-point-shot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Lollipop charts, essentially another version of a bar chart, consist of a clever use of <code>geom_point()</code> as the data point and <code>geom_segment()</code> as the “bars”. Lollipop charts serve the same purpose as bar charts, but, in my opinion, they do look more aesthetically appealing, and sometimes that’s all that matters!</p>
+<p>This chart shows how the average three point attempts per game has changed over the course of ~20 years (1996-2019).</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+
