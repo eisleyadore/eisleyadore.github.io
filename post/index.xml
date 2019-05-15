@@ -6,10 +6,29 @@
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Getting the Data</title>
+      <link>/2019/03/15/getting-the-code/</link>
+      <pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/03/15/getting-the-code/</guid>
+      <description>All you need to start data analysis, well figuring out what you want to study, is to find the data! I wanted to answer the question</description>
+    </item>
+    
+    <item>
+      <title>Data Science In Sports</title>
+      <link>/2019/02/15/data-science-in-sports/</link>
+      <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/15/data-science-in-sports/</guid>
+      <description>Sports analytics is one of the leading fields in data science. Most professional sports teams call on the help from professional statisticians to help with their operations, be it in team/individual performance or in business performance.
+“Who do you think will win?”, “Why is this team dominant?”, “Who is the best player right now?”, “What is the best strategy in this situation”. There are several reasons why a team would ask these questions and, through data science, these answers could be studied AND visualised.</description>
+    </item>
     
     <item>
       <title>First Post</title>
