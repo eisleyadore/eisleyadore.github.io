@@ -6,10 +6,20 @@
     <description>Recent content on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Does Three Point Field Goal Percentage Affect Winning?</title>
+      <link>/2019/03/29/does-three-point-field-goal-percentage-affect-winning/</link>
+      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/03/29/does-three-point-field-goal-percentage-affect-winning/</guid>
+      <description>I wanted to see if three point percentage affect winning. Let’s try making a simple linear model:
+threePointModel &amp;lt;- lm(GW ~THREEPP_100,data = stats_2019)summary(threePointModel)## ## Call:## lm(formula = GW ~ THREEPP_100, data = stats_2019)## ## Residuals:## Min 1Q Median 3Q Max ## -21.7873 -5.8964 0.3398 7.7762 20.0635 ## ## Coefficients:## Estimate Std. Error t value Pr(&amp;gt;|t|) ## (Intercept) -110.234 44.371 -2.484 0.01923 * ## THREEPP_100 4.</description>
+    </item>
     
     <item>
       <title>Getting the Data</title>
