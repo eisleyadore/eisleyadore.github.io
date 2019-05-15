@@ -78,7 +78,7 @@ This chart shows how the average three point attempts per game has changed over 
 
 The last visualization I tried was with the use of `library(gganimate)`
 
-```{r, cache=TRUE, fig.align="left"}
+```{r, cache=TRUE, fig.align="left", fig.width=3, fig.height=3}
 ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPP, color = Team)) +
   transition_time(Year) + 
   geom_point() +
