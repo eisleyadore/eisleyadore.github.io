@@ -96,20 +96,14 @@ summary(threePointModel)</code></pre>
 ## Residual standard error: 10.29 on 28 degrees of freedom
 ## Multiple R-squared:  0.2936, Adjusted R-squared:  0.2684 
 ## F-statistic: 11.64 on 1 and 28 DF,  p-value: 0.001983</code></pre>
-<p>I try to explain Games Won (GW) by that team’s average Three Point field goal percentage (THREEPP) per game. I’m just looking at data from the most recent NBA regular season, 2018-2019. We can see from the model that as Three Point Percentage goes up,</p>
-<pre class="r"><code>ggplot(data = stats_2019, aes(x = THREEPP_100, y = GW)) +
-  geom_point() +
-  geom_smooth(method=&#39;lm&#39;,formula=y~x, se=FALSE) +
-  theme_bw()</code></pre>
+<p>I try to explain Games Won (GW) by that team’s average Three Point field goal percentage (THREEPP_100) per game. I’m just looking at data from the most recent NBA regular season, 2018-2019. We can see from the model that as Three Point Percentage goes up by 1 percent, the number of games won by that team increasees by 4.25.</p>
 <p><img src="/post/2019-05-15-does-three-point-field-goal-percentage-affect-winning_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(data = statsAllYears, aes(x = THREEPP, y = GW)) +
-  facet_wrap(~Year) +
-  geom_point() +
-  geom_smooth(method=&#39;lm&#39;,formula=y~x, se=FALSE) +
-  theme_bw()</code></pre>
-<p><img src="/post/2019-05-15-does-three-point-field-goal-percentage-affect-winning_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<pre class="r"><code>model_three &lt;- lm(GW~THREEPP_100*Year, data = statsAllYears)
-anova(model_three)</code></pre>
+<p>The regression model for the year 2019 has a positive slope.</p>
+<p>Let’s see the regression lines for the different years. <img src="/post/2019-05-15-does-three-point-field-goal-percentage-affect-winning_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>We can see that all the slopes are positive, so an increase in three point percentage means more games won, except for the year 1997.</p>
+<p>Let’s run an anova test, to see if year is significant.</p>
+<pre class="r"><code>model_threes &lt;- lm(GW~THREEPP_100*Year, data = statsAllYears)
+anova(model_threes)</code></pre>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: GW
@@ -120,8 +114,7 @@ anova(model_three)</code></pre>
 ## Residuals        663  83160   125.4                       
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<pre class="r"><code>m.lst &lt;- lstrends(model_three, &quot;Year&quot;, var=&quot;THREEPP_100&quot;)
-m.lst</code></pre>
+<p>We can see that the p-value of Year is less than .05, so year is significant.</p>
 <pre><code>##  Year THREEPP_100.trend    SE  df lower.CL upper.CL
 ##  1996              3.59 0.939 663   1.7417     5.43
 ##  1997             -2.88 0.942 663  -4.7288    -1.03
@@ -149,6 +142,7 @@ m.lst</code></pre>
 ##  2019              4.25 1.357 663   1.5888     6.92
 ## 
 ## Confidence level used: 0.95</code></pre>
+<p>Looking at the different regression slopes (THREEPP_100.trend) for the different years, we can see the 2015-2019 have a significantly higher regression slopes than of previous years.</p>
 
     </div>
   </article>
