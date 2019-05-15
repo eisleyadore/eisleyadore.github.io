@@ -16,6 +16,7 @@ library(gganimate)
 library(gifski)
 library(tidyr)
 library(lsmeans)
+library
 
 nbastats <- read.csv("https://raw.githubusercontent.com/eisleyadore/eisleyadore.github.io/master/data/nbastats.csv",
                      fileEncoding="UTF-8-BOM")
