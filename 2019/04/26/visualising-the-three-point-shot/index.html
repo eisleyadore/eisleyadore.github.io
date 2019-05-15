@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.54.0" />
 
 
-<title>Visualising the Three Point Shot - A Hugo website</title>
-<meta property="og:title" content="Visualising the Three Point Shot - A Hugo website">
+<title>Visualizing the Three Point Shot - A Hugo website</title>
+<meta property="og:title" content="Visualizing the Three Point Shot - A Hugo website">
 
 
   <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -65,7 +65,7 @@
     <span class="article-duration">2 min read</span>
     
 
-    <h1 class="article-title">Visualising the Three Point Shot</h1>
+    <h1 class="article-title">Visualizing the Three Point Shot</h1>
 
     
     <span class="article-date">2019-04-26</span>
@@ -101,6 +101,17 @@
 <p><img src="/post/2019-05-15-visualising-the-three-point-shot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Lollipop charts, essentially another version of a bar chart, consist of a clever use of <code>geom_point()</code> as the data point and <code>geom_segment()</code> as the “bars”. Lollipop charts serve the same purpose as bar charts, but, in my opinion, they do look more aesthetically appealing, and sometimes that’s all that matters!</p>
 <p>This chart shows how the average three point attempts per game has changed over the course of ~20 years (1996-2019).</p>
+<p>The last visualization I tried was with the use of <code>library(gganimate)</code></p>
+<pre class="r"><code>ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPP, color = Team)) +
+  transition_time(Year) + 
+  geom_point() +
+  theme_bw() +
+  guides(color = FALSE) +
+  labs(title = &quot;Three Point Attemps vs Three Point Percentage, Year: {frame_time}&quot;) +
+  xlab(&quot;Three Point FG Attemps (Per Game)&quot;) +
+  ylab(&quot;Three Points FG Percentage (Per Game)&quot;)</code></pre>
+<p><img src="/post/2019-05-15-visualising-the-three-point-shot_files/figure-html/unnamed-chunk-4-1.gif" /><!-- --></p>
+<p>gganimate let’s you visualize how your data changes through another categorical variable. In this specific case I wanted to see the relationship between Three Point Percantage and Three Point Attempts through the years 1995-2019, which adding the code <code>transition_time(Year)</code> does.</p>
 
     </div>
   </article>

@@ -1,5 +1,5 @@
 ---
-title: Visualising the Three Point Shot
+title: Visualizing the Three Point Shot
 author: ~
 date: '2019-04-26'
 slug: visualising-the-three-point-shot
@@ -32,7 +32,7 @@ FGAdata <- read.csv("https://raw.githubusercontent.com/eisleyadore/eisleyadore.g
 
 statsAllYears$THREEPP_100 <- 100*statsAllYears$THREEPP
 
-statsAllYears$Year <- as.factor(statsAllYears$Year)
+#statsAllYears$Year <- as.factor(statsAllYears$Year)
 
 stats_2019 <- statsAllYears %>% 
   filter(Year == 2019) 
@@ -75,4 +75,19 @@ ggplot(data = threePA_year, aes(x = Year, y = threePA)) +
 Lollipop charts, essentially another version of a bar chart, consist of a clever use of `geom_point()` as the data point and `geom_segment()` as the "bars". Lollipop charts serve the same purpose as bar charts, but, in my opinion, they do look more aesthetically appealing, and sometimes that's all that matters!
 
 This chart shows how the average three point attempts per game has changed over the course of ~20 years (1996-2019).
+
+The last visualization I tried was with the use of `library(gganimate)`
+
+```{r}
+ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPP, color = Team)) +
+  transition_time(Year) + 
+  geom_point() +
+  theme_bw() +
+  guides(color = FALSE) +
+  labs(title = "Three Point Attemps vs Three Point Percentage, Year: {frame_time}") +
+  xlab("Three Point FG Attemps (Per Game)") +
+  ylab("Three Points FG Percentage (Per Game)")
+```
+
+gganimate let's you visualize how your data changes through another categorical variable. In this specific case I wanted to see the relationship between Three Point Percantage and Three Point Attempts through the years 1995-2019, which adding the code `transition_time(Year)` does.
 
