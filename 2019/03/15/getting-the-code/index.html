@@ -22,6 +22,11 @@
 
 
 
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
 
@@ -57,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">2 min read</span>
     
 
     <h1 class="article-title">Getting the Data</h1>
@@ -70,8 +75,15 @@
       
 
 
-<p>All you need to start data analysis, well figuring out what you want to study, is to find the data! I wanted to answer the question</p>
-<p><img src="/post/2019-05-15-getting-the-code_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>All you need to start data analysis, well after figuring out what you want to study, is to find the data! I wanted to answer the question: “Could Michael Jodan play in today’s NBA?”.</p>
+<p>I wanted to look at nba player stats from the years 1996-1998 (the Jordan-dominant years) and from 2017-2019 (today’s NBA). I got the data from nba.com and basketball-reference.com.</p>
+<p>I actually ended up, mostly, copying-pasting data into an excel file and stack data from all the years together on top of eachother.</p>
+<p>To read in the data, I stored my data files in github and I read the files through there:</p>
+<pre class="r"><code>statsbyyear &lt;- read.csv(&quot;https://github.com/eisleyadore/eisleyadore.github.io/raw/master/data/statsbyyear.csv&quot;)</code></pre>
+<p>Cleaning the data for this study, at least from the datasets I created, consisted of changing column names (can’t have column names start with numbers!), sorting by year, changing some datasets into long from wide format, etc.. I didn’t have to deal with missing data, as there was no missing data.</p>
+<p>With the data, I ended up with some cool stuff, such as this graph that shows how Jordan’s (from 1996-1998) average points per game compared to top players in todays NBA (2017-2019).</p>
+<p><img src="/post/2019-05-15-getting-the-code_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>I ended up switching my research topic to “The evolution of Three Point Shots in the NBA”, from my previous topic. However, I still ended up using the same datasets, while adding a few more years of nba data in between.</p>
 
     </div>
   </article>
@@ -94,6 +106,18 @@
 
     </div>
     
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
     
 

@@ -17,7 +17,9 @@
       <pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/03/15/getting-the-code/</guid>
-      <description>All you need to start data analysis, well figuring out what you want to study, is to find the data! I wanted to answer the question</description>
+      <description>All you need to start data analysis, well after figuring out what you want to study, is to find the data! I wanted to answer the question: “Could Michael Jodan play in today’s NBA?”.
+I wanted to look at nba player stats from the years 1996-1998 (the Jordan-dominant years) and from 2017-2019 (today’s NBA). I got the data from nba.com and basketball-reference.com.
+I actually ended up, mostly, copying-pasting data into an excel file and stack data from all the years together on top of eachother.</description>
     </item>
     
     <item>
