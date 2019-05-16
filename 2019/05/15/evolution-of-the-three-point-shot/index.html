@@ -95,7 +95,7 @@ ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPP, color = Team)) +
   labs(title = &quot;Three Point Attempts vs Three Point Percentage, Year: {frame_time}&quot;) +
   xlab(&quot;Three Point FG Attemps (Per Game)&quot;) +
   ylab(&quot;Three Points FG Percentage (Per Game)&quot;)</code></pre>
-<p><img src="/post/2019-05-15-evolution-of-the-three-point-shot_files/figure-html/unnamed-chunk-3-1.gif" /><!-- --></p>
+<p><img src="/post/2019-05-15-evolution-of-the-three-point-shot_files/figure-html/unnamed-chunk-3-1.gif" style="display: block; margin: auto auto auto 0;" /></p>
 <p>This animated graph shows Three Point Attempts vs Three Point Percentages from the years 1996 to 2019. We can see a shift to the top right (higher field goal percentages and higher three point attemps the later the year is.)</p>
 <pre class="r"><code>ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPM, color = Team)) +
   transition_time(Year) + 
@@ -105,7 +105,7 @@ ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPP, color = Team)) +
   labs(title = &quot;Three Point Attemps vs Made, Year: {frame_time}&quot;) +
   xlab(&quot;Three Point FG Attemps (Per Game)&quot;) +
   ylab(&quot;Three Point FGs Made (Per Game)&quot;)     </code></pre>
-<p><img src="/post/2019-05-15-evolution-of-the-three-point-shot_files/figure-html/unnamed-chunk-4-1.gif" /><!-- --></p>
+<p><img src="/post/2019-05-15-evolution-of-the-three-point-shot_files/figure-html/unnamed-chunk-4-1.gif" style="display: block; margin: auto auto auto 0;" /></p>
 <p>The change in three point shots is more apparent when looking at Three points Made</p>
 
     </div>
