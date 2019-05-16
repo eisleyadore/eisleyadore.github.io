@@ -88,9 +88,6 @@
   theme_bw()</code></pre>
 <p><img src="/post/2019-05-15-visualising-the-three-point-shot_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>This library lets you highlight lines, points, etc. in your graph using a filter! For the graph above I wanted to see the players who had a mean Three point Percentage greater than 40 over the past three years: <code>gghighlight(mean(THREEP,) &gt; 40, label_key = Player)</code>. We can see thatonly three players have 3P% over the past three years, Stephen Curry, Klay Thompson, and Kyrie Irving.</p>
-<pre class="r"><code>threePA_year &lt;- statsAllYears %&gt;% 
-  group_by(Year) %&gt;% 
-  summarise(threePA = mean(THREEPA))</code></pre>
 <p>The next plot was the lollipop chart.</p>
 <pre class="r"><code>ggplot(data = threePA_year, aes(x = Year, y = threePA)) +
   geom_segment(aes(x = Year, xend = Year, y = 0, yend = threePA)) +

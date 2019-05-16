@@ -17,7 +17,8 @@
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/05/15/evolution-of-the-three-point-shot/</guid>
-      <description></description>
+      <description>The Three Point line was introduced to the NBA in the year 1980. Players and coaches saw it as a gimmick; the average three point attempts per game in 1980 was just 2.77 shots. Lets see how that has changed over time.
+ggplot(data = threetwo_year, aes(x = Year, y = THREEPA_avg)) +geom_segment(aes(x = Year, xend = Year, y = 0, yend = THREEPA_avg)) +geom_point(size = 4, color = &amp;quot;#00BFC4&amp;quot;) +theme_bw() +ggtitle(&amp;quot;Average Three Point Attempts per Game, 1980-2019&amp;quot;) +ylab(&amp;quot;Three Point Attempts&amp;quot;)We can see an obvious increase in the number of three point attempts from 1980 to 2019, with just 2.</description>
     </item>
     
     <item>

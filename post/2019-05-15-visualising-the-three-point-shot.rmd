@@ -57,7 +57,7 @@ ggplot(allstats, aes(x = Year, y = THREEP., color = Player)) +
 
 This library lets you highlight lines, points, etc. in your graph using a filter! For the graph above I wanted to see the players who had a mean Three point Percentage greater than 40 over the past three years: `gghighlight(mean(THREEP,) > 40, label_key = Player)`. We can see thatonly three players have 3P% over the past three years, Stephen Curry, Klay Thompson, and Kyrie Irving.
 
-```{r}
+```{r,echo=FALSE}
 threePA_year <- statsAllYears %>% 
   group_by(Year) %>% 
   summarise(threePA = mean(THREEPA))
