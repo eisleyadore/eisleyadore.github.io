@@ -98,7 +98,7 @@
 <p><img src="/post/2019-05-15-visualising-the-three-point-shot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Lollipop charts, essentially another version of a bar chart, consist of a clever use of <code>geom_point()</code> as the data point and <code>geom_segment()</code> as the “bars”. Lollipop charts serve the same purpose as bar charts, but, in my opinion, they do look more aesthetically appealing, and sometimes that’s all that matters!</p>
 <p>This chart shows how the average three point attempts per game has changed over the course of ~20 years (1996-2019).</p>
-<p>The last visualization I tried was with the use of <code>library(gganimate)</code></p>
+<p>The last visualization I tried was with the use of <code>library(gganimate)</code>.</p>
 <pre class="r"><code>ggplot(data = statsAllYears, aes(x = THREEPA, y = THREEPP, color = Team)) +
   transition_time(Year) + 
   geom_point() +
