@@ -22,11 +22,6 @@
 
 
 
-
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
-
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
 
@@ -76,12 +71,6 @@
 
 
 <p>The Three Point line was introduced to the NBA in the year 1980. Players and coaches saw it as a gimmick; the average three point attempts per game in 1980 was just 2.77 shots. Lets see how that has changed over time.</p>
-<pre class="r"><code>ggplot(data = threetwo_year, aes(x = Year, y = THREEPA_avg)) +
-  geom_segment(aes(x = Year, xend = Year, y = 0, yend = THREEPA_avg)) +
-  geom_point(size = 4, color = &quot;#00BFC4&quot;) +
-  theme_bw() +
-  ggtitle(&quot;Average Three Point Attempts per Game, 1980-2019&quot;) +
-  ylab(&quot;Three Point Attempts&quot;)</code></pre>
 <p><img src="/post/2019-05-15-evolution-of-the-three-point-shot_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>We can see an obvious increase in the number of three point attempts from 1980 to 2019, with just 2.77 attempts in 1980 and a whopping 32.0 attempts in 2019.</p>
 <p>What also strikes the eye are three points from years, 1995-1997. The nba actually moved the three point closer during those years, and eventually moved it back in 1998.</p>
@@ -111,18 +100,6 @@
 
     </div>
     
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
 
     
 
